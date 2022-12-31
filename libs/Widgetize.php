@@ -22,7 +22,9 @@ class Widgetize extends WP_Widget {
      * @param string $class
      */
     public static function add($class) {
-        add_action('widgets_init', create_function('', 'return register_widget("' . $class . '");'));
+        add_action( 'widgets_init', function() use ($class) {
+                        register_widget($class);
+                  });
     }
 
     /**
