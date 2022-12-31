@@ -1,8 +1,6 @@
 # Server Status For Minecraft PC & PE (MCServerStatus)
 Server Status For Minecraft PC & PE is a WordPress Widget, show Minecraft Java and Bedrock editions server data.
 
-[Download this plugin](https://wordpress.org/plugins/server-status-for-minecraft-pc-pe)
-
 You can display / hide these information:
 
  * Server name (MOTD)
@@ -28,6 +26,9 @@ Other functions:
  * DynMap
  * Set player avatar size
  * Auto update status
+
+### Compatibility
+ Tested with Wordpress 6.1.1
 
 ### Precautions
 * This method use GameSpy4 protocol, and requires enabling query listener in your server.properties like this: `enable-query=true` and `query.port=25565`.
