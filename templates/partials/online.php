@@ -59,7 +59,7 @@ echo $args['before_title'] . $instance['title'] . $args['after_title']; ?>
         <?php endif; ?>
     <?php endif; ?>
 
-    <?php if (count($server['plugins']) > 0 && $server['plugins'] != "ping" && isset($instance['show_plugins']) && $instance['show_plugins']) : ?>
+    <?php if (is_numeric($server['plugins']) && count($server['plugins']) > 0 && $server['plugins'] != "ping" && isset($instance['show_plugins']) && $instance['show_plugins']) : ?>
         <span id="mcs_list_<?php echo $randomPlugins; ?>" style="display:none">
             <?php foreach ($server['plugins'] as $plugin) : ?>
                 <span>　- <?php echo $plugin['name']; ?></span><br>
@@ -73,14 +73,14 @@ echo $args['before_title'] . $instance['title'] . $args['after_title']; ?>
 
     <?php if (isset($instance['show_players']) && $instance['show_players']) : ?>
         <br>
-        <?php if (count($server['players']) > 0 || $server['players'] == "ping") : ?>
+        <?php if ( is_numeric($server['players']) && count($server['players']) > 0 || $server['players'] == "ping") : ?>
             <?php echo esc_html__('Players: ', 'server-status-for-minecraft-pc-pe'); ?><strong><refresh class="players"><font color="#008000"><?php echo $server['server']['players_online']; ?></font>/<font color="#ff0000"><?php echo $server['server']['players_max']; ?></font></refresh></strong> (<a href="javascript:toggleMcsList(<?php echo $randomPlayerList; ?>);"><?php echo esc_html__('Players list', 'server-status-for-minecraft-pc-pe'); ?></a>)
         <?php else : ?>
             <?php echo esc_html__('Players: ', 'server-status-for-minecraft-pc-pe'); ?><strong><refresh class="players2"><font color="#008000"><?php echo $server['server']['players_online']; ?></font>/<font color="#ff0000"><?php echo $server['server']['players_max']; ?></font></refresh></strong>
         <?php endif; ?>
     <?php endif; ?>
 
-    <?php if (count($server['players']) > 0 && $server['players'] != "ping" && isset($instance['show_players']) && $instance['show_players']) : ?>
+    <?php if (is_numeric($server['players']) &&  count($server['players']) > 0 && $server['players'] != "ping" && isset($instance['show_players']) && $instance['show_players']) : ?>
         <span id="mcs_list_<?php echo $randomPlayerList; ?>" style="margin-top:5px;<?php echo (isset($instance['show_auto_players']) && $instance['show_auto_players'] == 'on') ? 'display:block' : 'display:none'; ?> ">
             <refresh class="playerslist">
                 <?php foreach ($server['players'] as $player) : ?>
